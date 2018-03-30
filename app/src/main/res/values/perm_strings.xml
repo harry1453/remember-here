@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_new_location">Add New Location</string>
+    <string name="new_location_name_label">Name:</string>
+    <string name="new_location_latitude_label">Latitude:</string>
+    <string name="new_location_longitude_label">Longitude:</string>
+    <string name="new_location_description_label">Description:\n(Optional)</string>
+    <string name="new_location_use_gps_button">Use current location</string>
+    <string name="drawer_open">Open navigation drawer</string>
+    <string name="drawer_close">Close navigation drawer</string>
+    <string name="new_location_save_button">Save</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="title_activity_about_app">About Remember Here</string>
+    <string name="instructions_button_text">Instructions</string>
+    <string name="disable_ads_button_text">Disable Ads</string>
+    <string name="restore_purchases_button_text">Restore purchases</string>
+    <string name="cakepod_logo_image_description">CakePod Logo</string>
+    <string name="title_activity_edit_location">Edit Location</string>
+    <string name="no_locations">No saved locations!</string>
+    <string name="instructions_title">Instructions</string>
+</resources>

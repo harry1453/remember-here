@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="settings_category_general">category_general</string>
+    <string name="settings_category_general_title">General</string>
+
+    <string name="settings_always_use_google_maps">always_use_google_maps</string>
+    <string name="settings_always_use_google_maps_summary">Always use google maps to handle navigation instead of using activity chooser</string>
+    <string name="settings_always_use_google_maps_title">Always use google maps</string>
+
+    <string name="settings_default_transport_mode">default_transport_mode</string>
+    <string name="settings_default_transport_mode_title">Default mode of transport</string>
+    <string name="settings_default_transport_mode_summary">The default mode of transport selected when engaging navigation</string>
+
+    <string-array name="transportModes">
+        <item name="driving">Driving</item>
+        <item name="walking">Walking</item>
+        <item name="cycling">Cycling</item>
+    </string-array>
+    <string-array name="transportModeValues">
+        <item name="driving">d</item>
+        <item name="walking">w</item>
+        <item name="cycling">b</item>
+    </string-array>
+
+    <string name="auto_engage_navigation">auto_engage_navigation</string>
+    <string name="auto_engage_navigation_title">Automatically start navigation</string>
+    <string name="auto_engage_navigation_summary">Start navigating instead of viewing a map first. DOES NOT WORK ON ANDROID 5+</string>
+</resources>

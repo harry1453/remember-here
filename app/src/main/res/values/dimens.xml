@@ -1,0 +1,9 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <!-- The locations_list dimensions should be the same for all screen resolutions so I'll only put them in here -->
+    <dimen name="locations_list_beginning_space_size">3mm</dimen>
+    <dimen name="locations_list_top_bottom_space_size">2mm</dimen>
+</resources>

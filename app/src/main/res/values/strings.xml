@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Remember Here</string>
+    <string name="app_copyright">Copyright © CakePod Productions 2017. All rights reserved.</string>
+    <string name="app_version">Version 2.1</string>
+    <string name="instructions_message">
+        Welcome to Remember Here!\n\n
+        To start, click the add button in the bottom right and then add your location details.
+         Click Use current Location to use your current GPS Position - this requires GPS to be enabled.
+         Click save, and it will appear in the list of locations. Clicking on the location will open up a menu, so you can view the location info, and either navigate to the location, edit the location, or delete it. To delete a location, press edit, then press delete.\n\n
+         As this is a free app, there are adverts, but these can be disabled in the About page - this costs the absolute minimum ($1 / 60p) but helps to support us.\n\n
+         Thank you for using Remember Here!
+    </string>
+</resources>

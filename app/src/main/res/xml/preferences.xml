@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="@string/settings_category_general_title"
+        android:key="@string/settings_category_general">
+
+        <CheckBoxPreference android:key="@string/settings_always_use_google_maps"
+            android:summary="@string/settings_always_use_google_maps_summary"
+            android:title="@string/settings_always_use_google_maps_title"
+            android:defaultValue="true" />
+
+        <CheckBoxPreference android:key="@string/auto_engage_navigation"
+            android:summary="@string/auto_engage_navigation_summary"
+            android:title="@string/auto_engage_navigation_title"
+            android:defaultValue="false" />
+
+        <ListPreference
+        android:key="@string/settings_default_transport_mode"
+        android:title="@string/settings_default_transport_mode_title"
+        android:summary="@string/settings_default_transport_mode_summary"
+        android:defaultValue="w"
+        android:entries="@array/transportModes"
+        android:entryValues="@array/transportModeValues"
+        android:dependency="@string/auto_engage_navigation" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

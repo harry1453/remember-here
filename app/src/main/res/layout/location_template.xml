@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <RelativeLayout
+        android:id="@+id/location_list_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/location_name"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Location Name"
+        android:paddingStart="@dimen/locations_list_beginning_space_size"
+        android:paddingLeft="@dimen/locations_list_beginning_space_size"
+        android:paddingEnd="@dimen/locations_list_beginning_space_size"
+        android:paddingRight="@dimen/locations_list_beginning_space_size"
+        android:paddingTop="@dimen/locations_list_top_bottom_space_size"
+        android:paddingBottom="@dimen/locations_list_top_bottom_space_size"
+        android:layout_gravity="center_vertical"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <!--<Button
+        android:id="@+id/select_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />-->
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

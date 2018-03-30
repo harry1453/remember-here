@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- TODO check paths -->
+    <include domain="database" path="RememberHereData.db" />
+    <include domain="sharedpref" path="adSettings.xml" />
+    <include domain="sharedpref" path="appSettings.xml" />
+    <include domain="sharedpref" path="preferences.xml" />
+</full-backup-content>

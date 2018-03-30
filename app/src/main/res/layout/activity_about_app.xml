@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.harrysoft.RememberHere.activities.AboutAppActivity">
+
+    <!-- TODO MAKE THE LOGO DISPLAY!!! -->
+    <!-- <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:id="@+id/cakepod_logo"
+        android:src="@drawable/cakepodlogothin"
+        android:contentDescription="@string/cakepod_logo_image_description" /> -->
+
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="5dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_name"
+        android:id="@+id/app_name_label"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_copyright"
+        android:id="@+id/copyright_label"
+        android:layout_below="@id/app_name_label"
+        android:gravity="center"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/app_version"
+        android:id="@+id/version_label"
+        android:layout_below="@id/copyright_label"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/about_screen_ads_enabled_label"
+        android:layout_below="@id/version_label"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/instructions_button_text"
+        android:layout_marginTop="10dp"
+        android:id="@+id/instructions_button"
+        android:layout_below="@+id/about_screen_ads_enabled_label"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/disable_ads_button_text"
+        android:id="@+id/disable_ads_button"
+        android:layout_below="@+id/instructions_button"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/restore_purchases_button_text"
+        android:id="@+id/about_screen_restore_purchases_button"
+        android:layout_below="@+id/disable_ads_button"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
