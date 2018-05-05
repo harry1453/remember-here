@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.support.annotation.CallSuper;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NavUtils;
@@ -15,7 +16,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
@@ -37,7 +37,8 @@ import android.view.ViewGroup;
  * Bar</a> API guide.</p>
  * </div>
  */
-public class AppCompatPreferenceActivity extends PreferenceActivity implements AppCompatCallback,
+@SuppressWarnings("EmptyMethod")
+public abstract class AppCompatPreferenceActivity extends PreferenceActivity implements AppCompatCallback,
         TaskStackBuilder.SupportParentable, ActionBarDrawerToggle.DelegateProvider {
 
     private AppCompatDelegate mDelegate;
@@ -63,30 +64,11 @@ public class AppCompatPreferenceActivity extends PreferenceActivity implements A
      * @return The Activity's ActionBar, or null if it does not have one.
      */
     @Nullable
-    public ActionBar getSupportActionBar() {
+    private ActionBar getSupportActionBar() {
         return getDelegate().getSupportActionBar();
     }
 
-    /**
-     * Set a {@link android.widget.Toolbar Toolbar} to act as the {@link android.support.v7.app.ActionBar} for this
-     * Activity window.
-     *
-     * <p>When set to a non-null value the {@link #getActionBar()} method will return
-     * an {@link android.support.v7.app.ActionBar} object that can be used to control the given toolbar as if it were
-     * a traditional window decor action bar. The toolbar's menu will be populated with the
-     * Activity's options menu and the navigation button will be wired through the standard
-     * {@link android.R.id#home home} menu select action.</p>
-     *
-     * <p>In order to use a Toolbar within the Activity's window content the application
-     * must not request the window feature
-     * {@link android.view.Window#FEATURE_ACTION_BAR FEATURE_SUPPORT_ACTION_BAR}.</p>
-     *
-     * @param toolbar Toolbar to set as the Activity's action bar
-     */
-    public void setSupportActionBar(@Nullable Toolbar toolbar) {
-        getDelegate().setSupportActionBar(toolbar);
-    }
-
+    @NonNull
     @Override
     public MenuInflater getMenuInflater() {
         return getDelegate().getMenuInflater();
@@ -137,11 +119,7 @@ public class AppCompatPreferenceActivity extends PreferenceActivity implements A
         }
 
         final ActionBar ab = getSupportActionBar();
-        if (item.getItemId() == android.R.id.home && ab != null &&
-                (ab.getDisplayOptions() & ActionBar.DISPLAY_HOME_AS_UP) != 0) {
-            return onSupportNavigateUp();
-        }
-        return false;
+        return item.getItemId() == android.R.id.home && ab != null && (ab.getDisplayOptions() & ActionBar.DISPLAY_HOME_AS_UP) != 0 && onSupportNavigateUp();
     }
 
     @Override
@@ -154,29 +132,6 @@ public class AppCompatPreferenceActivity extends PreferenceActivity implements A
     protected void onTitleChanged(CharSequence title, int color) {
         super.onTitleChanged(title, color);
         getDelegate().setTitle(title);
-    }
-
-    /**
-     * Enable extended support library window features.
-     * <p>
-     * This is a convenience for calling
-     * {@link android.view.Window#requestFeature getWindow().requestFeature()}.
-     * </p>
-     *
-     * @param featureId The desired feature as defined in
-     * {@link android.view.Window} or {@link android.support.v4.view.WindowCompat}.
-     * @return Returns true if the requested feature is supported and now enabled.
-     *
-     * @see android.app.Activity#requestWindowFeature
-     * @see android.view.Window#requestFeature
-     */
-    public boolean supportRequestWindowFeature(int featureId) {
-        return getDelegate().requestWindowFeature(featureId);
-    }
-
-    //@Override
-    public void supportInvalidateOptionsMenu() {
-        getDelegate().invalidateOptionsMenu();
     }
 
     /**
@@ -219,10 +174,6 @@ public class AppCompatPreferenceActivity extends PreferenceActivity implements A
     @Override
     public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
         return null;
-    }
-
-    public ActionMode startSupportActionMode(ActionMode.Callback callback) {
-        return getDelegate().startSupportActionMode(callback);
     }
 
     /**
@@ -276,7 +227,7 @@ public class AppCompatPreferenceActivity extends PreferenceActivity implements A
      * @param builder An empty TaskStackBuilder - the application should add intents representing
      *                the desired task stack
      */
-    public void onCreateSupportNavigateUpTaskStack(TaskStackBuilder builder) {
+    private void onCreateSupportNavigateUpTaskStack(TaskStackBuilder builder) {
         builder.addParentStack(this);
     }
 
@@ -295,7 +246,7 @@ public class AppCompatPreferenceActivity extends PreferenceActivity implements A
      * @param builder A TaskStackBuilder that has been populated with Intents by
      *                onCreateNavigateUpTaskStack.
      */
-    public void onPrepareSupportNavigateUpTaskStack(TaskStackBuilder builder) {
+    private void onPrepareSupportNavigateUpTaskStack(TaskStackBuilder builder) {
     }
 
     /**
@@ -321,7 +272,7 @@ public class AppCompatPreferenceActivity extends PreferenceActivity implements A
      * @return true if Up navigation completed successfully and this Activity was finished,
      *         false otherwise.
      */
-    public boolean onSupportNavigateUp() {
+    private boolean onSupportNavigateUp() {
         Intent upIntent = getSupportParentActivityIntent();
 
         if (upIntent != null) {
@@ -375,7 +326,7 @@ public class AppCompatPreferenceActivity extends PreferenceActivity implements A
      * @return true if navigating up should recreate a new task stack, false if the same task
      *         should be used for the destination
      */
-    public boolean supportShouldUpRecreateTask(Intent targetIntent) {
+    private boolean supportShouldUpRecreateTask(Intent targetIntent) {
         return NavUtils.shouldUpRecreateTask(this, targetIntent);
     }
 
@@ -391,21 +342,8 @@ public class AppCompatPreferenceActivity extends PreferenceActivity implements A
      *
      * @param upIntent An intent representing the target destination for up navigation
      */
-    public void supportNavigateUpTo(Intent upIntent) {
+    private void supportNavigateUpTo(Intent upIntent) {
         NavUtils.navigateUpTo(this, upIntent);
-    }
-
-    @Override
-    public void onContentChanged() {
-        // Call onSupportContentChanged() for legacy reasons
-        onSupportContentChanged();
-    }
-
-    /**
-     * @deprecated Use {@link #onContentChanged()} instead.
-     */
-    @Deprecated
-    public void onSupportContentChanged() {
     }
 
     @Nullable
@@ -439,7 +377,7 @@ public class AppCompatPreferenceActivity extends PreferenceActivity implements A
     /**
      * @return The {@link AppCompatDelegate} being used by this Activity.
      */
-    public AppCompatDelegate getDelegate() {
+    private AppCompatDelegate getDelegate() {
         if (mDelegate == null) {
             mDelegate = AppCompatDelegate.create(this, this);
         }

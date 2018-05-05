@@ -27,20 +27,17 @@ public class AboutAppActivity extends AppCompatActivity {
     private static final String ITEM_SKU = "remember_here_remove_adverts";
     private TextView adsLabel;
 
-    IabHelper purchaseHelper;
+    private IabHelper purchaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about_app);
-        try{
-            getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
-        } catch (NullPointerException e)
-        {
-            Toast.makeText(this, "Error initialising action bar", Toast.LENGTH_LONG).show();
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
 
-        adsLabel = (TextView) findViewById(R.id.about_screen_ads_enabled_label);
+        adsLabel = findViewById(R.id.about_screen_ads_enabled_label);
 
         updateAdsLabel(adsLabel);
 
@@ -54,17 +51,17 @@ public class AboutAppActivity extends AppCompatActivity {
             }
         });
 
-        TextView appNameLabel = (TextView) findViewById(R.id.app_name_label);
-        TextView copyrightLabel = (TextView) findViewById(R.id.copyright_label);
-        TextView versionLabel = (TextView) findViewById(R.id.version_label);
+        TextView appNameLabel = findViewById(R.id.app_name_label);
+        TextView copyrightLabel = findViewById(R.id.copyright_label);
+        TextView versionLabel = findViewById(R.id.version_label);
         AutofitHelper.create(appNameLabel);
         AutofitHelper.create(copyrightLabel);
         AutofitHelper.create(versionLabel);
         AutofitHelper.create(adsLabel);
 
-        Button disableAdsButton = (Button) findViewById(R.id.disable_ads_button);
-        Button restorePurchasesButton = (Button) findViewById(R.id.about_screen_restore_purchases_button);
-        Button showInstructionsButton = (Button) findViewById(R.id.instructions_button);
+        Button disableAdsButton = findViewById(R.id.disable_ads_button);
+        Button restorePurchasesButton = findViewById(R.id.about_screen_restore_purchases_button);
+        Button showInstructionsButton = findViewById(R.id.instructions_button);
         showInstructionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,7 +97,7 @@ public class AboutAppActivity extends AppCompatActivity {
         return true;
     }
 
-    public void disableAds(View view){
+    private void disableAds(View view){
         purchaseHelper.launchPurchaseFlow(this, ITEM_SKU, 10001, mPurchaseFinishedListener, Constants.removeAdsPurchaseToken);
     }
 
@@ -114,7 +111,7 @@ public class AboutAppActivity extends AppCompatActivity {
         }
     }
 
-    IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener
+    private final IabHelper.OnIabPurchaseFinishedListener mPurchaseFinishedListener
             = new IabHelper.OnIabPurchaseFinishedListener() {
         public void onIabPurchaseFinished(IabResult result,
                                           Purchase purchase)
@@ -140,9 +137,9 @@ public class AboutAppActivity extends AppCompatActivity {
     private void updateAdsLabel(TextView label){
         boolean adsEnabled = getSharedPreferences(Constants.adSettingsFileName, Context.MODE_PRIVATE).getBoolean(Constants.adsEnabledKey, true);
         if (adsEnabled){
-            label.setText("Ads enabled");
+            label.setText(R.string.ads_enabled);
         } else {
-            label.setText("Ads disabled");
+            label.setText(R.string.ads_disabled);
         }
     }
 
@@ -150,15 +147,12 @@ public class AboutAppActivity extends AppCompatActivity {
         purchaseHelper.queryInventoryAsync(mGotInventoryListener);
     }
 
-    IabHelper.QueryInventoryFinishedListener mGotInventoryListener
+    private final IabHelper.QueryInventoryFinishedListener mGotInventoryListener
             = new IabHelper.QueryInventoryFinishedListener() {
         public void onQueryInventoryFinished(IabResult result,
                                              Inventory inventory) {
 
-            if (result.isFailure()) {
-                // handle error here
-            }
-            else {
+            if (!result.isFailure()) {
                 // does the user have the premium upgrade?
                 boolean adsDisabled = inventory.hasPurchase(ITEM_SKU);
                 SharedPreferences sharedPref = getSharedPreferences(Constants.adSettingsFileName, Context.MODE_PRIVATE);

@@ -5,9 +5,7 @@ import android.view.View;
 
 public abstract class getGpsOnClickListener implements View.OnClickListener{
 
-    Context context;
-
-    private getGpsDialog gpsDialog;
+    private final Context context;
 
     public getGpsOnClickListener(Context context){
         this.context = context;
@@ -15,7 +13,7 @@ public abstract class getGpsOnClickListener implements View.OnClickListener{
 
     @Override
     public void onClick(View v){
-        gpsDialog = new getGpsDialog(context) {
+        getGpsDialog gpsDialog = new getGpsDialog(context) {
             @Override
             public void takeDialogGPSCoordinates(double latitude, double longitude) {
                 takeGPSCoordinates(latitude, longitude);

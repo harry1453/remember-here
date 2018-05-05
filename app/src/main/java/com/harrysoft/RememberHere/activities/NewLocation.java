@@ -19,31 +19,27 @@ import com.harrysoft.RememberHere.tools.Constants;
 
 public class NewLocation extends AppCompatActivity {
 
-    private ActionBar actionBar;
-
-    private Button useGpsButton;
-    private Button saveButton;
     private EditText nameBox;
     private EditText latitudeBox;
     private EditText longitudeBox;
     private EditText descriptionBox;
 
-    DBAdapter db = new DBAdapter(this);
+    private final DBAdapter db = new DBAdapter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_location);
 
-        actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        useGpsButton = (Button) findViewById(R.id.use_gps_button);
-        saveButton = (Button) findViewById(R.id.save_button);
-        nameBox = (EditText) findViewById(R.id.name_text_box);
-        latitudeBox = (EditText) findViewById(R.id.latitude_text_box);
-        longitudeBox = (EditText) findViewById(R.id.longitude_text_box);
-        descriptionBox = (EditText) findViewById(R.id.description_text_box);
+        Button useGpsButton = findViewById(R.id.use_gps_button);
+        Button saveButton = findViewById(R.id.save_button);
+        nameBox = findViewById(R.id.name_text_box);
+        latitudeBox = findViewById(R.id.latitude_text_box);
+        longitudeBox = findViewById(R.id.longitude_text_box);
+        descriptionBox = findViewById(R.id.description_text_box);
 
         useGpsButton.setOnClickListener(new getGpsOnClickListener(this) {
                                             @Override

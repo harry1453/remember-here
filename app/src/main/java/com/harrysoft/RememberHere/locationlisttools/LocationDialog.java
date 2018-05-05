@@ -10,11 +10,11 @@ import android.widget.TextView;
 
 import com.harrysoft.RememberHere.R;
 
-public class LocationDialog extends Dialog implements android.view.View.OnClickListener{
-    Context c;
-    Button navigateButton, editButton, cancelButton;
-    String locationName, locationDescription;
-    int id;
+class LocationDialog extends Dialog implements android.view.View.OnClickListener{
+    private final Context c;
+    private final String locationName;
+    private final String locationDescription;
+    private final int id;
 
     public LocationDialog(Context c, String locationName, String locationDescription, int id) {
         super(c);
@@ -29,9 +29,9 @@ public class LocationDialog extends Dialog implements android.view.View.OnClickL
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.location_menu_dialog);
-        navigateButton = (Button) findViewById(R.id.navigateButton);
-        editButton = (Button) findViewById(R.id.editButton);
-        cancelButton = (Button) findViewById(R.id.cancelButton);
+        Button navigateButton = findViewById(R.id.navigateButton);
+        Button editButton = findViewById(R.id.editButton);
+        Button cancelButton = findViewById(R.id.cancelButton);
         navigateButton.setOnClickListener(new navigateButtonOnClickListener(c, this.id) {
             @Override
             public void onClick(View v){
@@ -49,8 +49,8 @@ public class LocationDialog extends Dialog implements android.view.View.OnClickL
         });
         cancelButton.setOnClickListener(this);
 
-        TextView locationTitleText = (TextView) findViewById(R.id.location_title);
-        TextView locationDescriptionText = (TextView) findViewById(R.id.location_description);
+        TextView locationTitleText = findViewById(R.id.location_title);
+        TextView locationDescriptionText = findViewById(R.id.location_description);
 
         if (locationDescription.equals(""))
         {

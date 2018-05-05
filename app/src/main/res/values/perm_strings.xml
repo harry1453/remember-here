@@ -14,8 +14,18 @@
     <string name="instructions_button_text">Instructions</string>
     <string name="disable_ads_button_text">Disable Ads</string>
     <string name="restore_purchases_button_text">Restore purchases</string>
-    <string name="cakepod_logo_image_description">CakePod Logo</string>
     <string name="title_activity_edit_location">Edit Location</string>
     <string name="no_locations">No saved locations!</string>
     <string name="instructions_title">Instructions</string>
+    <string name="delete_location">Delete Location</string>
+    <string name="getting_gps_coordinates">Getting GPS Coordinates…</string>
+    <string name="cancel">Cancel</string>
+    <string name="title">Title</string>
+    <string name="description">Description</string>
+    <string name="edit">Edit</string>
+    <string name="navigate">NAVIGATE!</string>
+    <string name="back">Back</string>
+    <string name="location_name">Location Name</string>
+    <string name="ads_enabled">Ads enabled</string>
+    <string name="ads_disabled">Ads disabled</string>
 </resources>

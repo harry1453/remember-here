@@ -10,9 +10,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text="Getting GPS Coordinates..."
+        android:text="@string/getting_gps_coordinates"
         android:textAlignment="center"
-        android:textSize="25dp"
+        android:textSize="25sp"
         android:textStyle="bold"/>
 
     <LinearLayout
@@ -25,10 +25,11 @@
             android:id="@+id/cancel_gps_button"
             android:layout_width="100dp"
             android:layout_height="45dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="5dp"
             android:clickable="true"
-            android:text="Cancel"
-            android:textStyle="bold" />
+            android:text="@string/cancel"
+            android:textStyle="bold"
+            android:focusable="true" />
     </LinearLayout>
 
 </LinearLayout>

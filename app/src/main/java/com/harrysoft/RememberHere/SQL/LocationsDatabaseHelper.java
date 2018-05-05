@@ -12,7 +12,7 @@ public class LocationsDatabaseHelper extends SQLiteOpenHelper {
     private static final String COMMA_SEP = ", ";
     private static final String NOT_NULL = " not null";
     private static final String NULLABLE = " null";
-    public static final String SQL_CREATE_ENTRIES =
+    private static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + LocationsDatabaseContract.LocationsTable.TABLE_NAME + " (" +
                     LocationsDatabaseContract.LocationsTable.COLUMN_NAME_ID + " INTEGER PRIMARY KEY," +
                     LocationsDatabaseContract.LocationsTable.COLUMN_NAME_NAME + TEXT_TYPE + NOT_NULL + COMMA_SEP +
@@ -21,10 +21,10 @@ public class LocationsDatabaseHelper extends SQLiteOpenHelper {
                     LocationsDatabaseContract.LocationsTable.COLUMN_NAME_DESCRIPTION + TEXT_TYPE + NULLABLE + // Any other options for the CREATE command
             " )";
 
-    public static final String SQL_DELETE_ENTRIES =
+    private static final String SQL_DELETE_ENTRIES =
             "DROP TABLE IF EXISTS " + LocationsDatabaseContract.LocationsTable.TABLE_NAME;
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "RememberHereData.db";
+    private static final int DATABASE_VERSION = 1;
+    private static final String DATABASE_NAME = "RememberHereData.db";
     private static final String TAG = "DBAdapter";
 
     public LocationsDatabaseHelper(Context context) {

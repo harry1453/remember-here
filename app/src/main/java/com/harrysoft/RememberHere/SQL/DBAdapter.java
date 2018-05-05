@@ -6,15 +6,14 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+@SuppressWarnings("UnusedReturnValue")
 public class DBAdapter {
 
     private SQLiteDatabase db;
-    private LocationsDatabaseHelper DBHelper;
-    private final Context context;
+    private final LocationsDatabaseHelper DBHelper;
 
     public DBAdapter(Context context) {
-        this.context = context;
-        DBHelper = new LocationsDatabaseHelper(this.context);
+        DBHelper = new LocationsDatabaseHelper(context);
     }
 
     public DBAdapter open() throws SQLException {

@@ -78,4 +78,5 @@
         android:id="@+id/about_screen_restore_purchases_button"
         android:layout_below="@+id/disable_ads_button"
         android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

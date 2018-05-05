@@ -24,8 +24,8 @@ package com.harrysoft.RememberHere.util;
  * calling {@link #isSuccess()} and {@link #isFailure()}.
  */
 public class IabResult {
-    int mResponse;
-    String mMessage;
+    private final int mResponse;
+    private final String mMessage;
 
     public IabResult(int response, String message) {
         mResponse = response;
@@ -36,8 +36,9 @@ public class IabResult {
             mMessage = message + " (response: " + IabHelper.getResponseDesc(response) + ")";
         }
     }
-    public int getResponse() { return mResponse; }
+
     public String getMessage() { return mMessage; }
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean isSuccess() { return mResponse == IabHelper.BILLING_RESPONSE_RESULT_OK; }
     public boolean isFailure() { return !isSuccess(); }
     public String toString() { return "IabResult: " + getMessage(); }

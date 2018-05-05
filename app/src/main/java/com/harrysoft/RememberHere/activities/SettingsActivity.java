@@ -8,15 +8,14 @@ import com.harrysoft.RememberHere.R;
 import com.harrysoft.RememberHere.pseudotools.ActionBarPreferenceActivity;
 
 public class SettingsActivity extends ActionBarPreferenceActivity {
-    ActionBar actionBar;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.preferences); // TODO get this updated
 
-        actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
-        actionBar.setDefaultDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
     @Override

@@ -1,15 +1,11 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.harrysoft.RememberHere.activities.NewLocation">
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+    android:orientation="vertical">
 
     <LinearLayout
         android:orientation="horizontal"
@@ -21,40 +17,47 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="@string/new_location_name_label"
-            android:id="@+id/name_label" />
+            android:labelFor="@id/name_text_box" />
+
         <EditText
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/name_text_box" /></LinearLayout>
+            android:id="@+id/name_text_box"
+            android:inputType="text" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="@string/new_location_description_label"
-                android:id="@+id/description_label"
-                android:lines="2"
-                android:layout_gravity="center_vertical"
-                android:gravity="center"/>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/new_location_description_label"
+            android:lines="2"
+            android:layout_gravity="center_vertical"
+            android:gravity="center"
+            android:labelFor="@id/description_text_box"/>
 
-            <EditText
-                android:layout_weight="1"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/description_text_box"
-                android:inputType="textAutoComplete|textAutoCorrect|text|textMultiLine"
-                android:lines="5" /></LinearLayout>
-
-        <Button
-            android:layout_width="match_parent"
+        <EditText
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/new_location_use_gps_button"
-            android:id="@+id/use_gps_button" />
+            android:id="@+id/description_text_box"
+            android:inputType="textAutoComplete|textAutoCorrect|text|textMultiLine"
+            android:lines="5" />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_location_use_gps_button"
+        android:id="@+id/use_gps_button" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -62,18 +65,20 @@
         android:layout_height="wrap_content">
 
         <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/new_location_latitude_label"
-        android:id="@+id/latitude_label" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/new_location_latitude_label"
+            android:labelFor="@id/latitude_text_box" />
+
         <EditText
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/latitude_text_box"
-            android:numeric="decimal"
-            android:inputType="numberSigned|numberDecimal" /></LinearLayout>
+            android:inputType="numberSigned|numberDecimal" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -81,24 +86,25 @@
         android:layout_height="wrap_content">
 
         <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/new_location_longitude_label"
-        android:id="@+id/longitude_label" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/new_location_longitude_label"
+            android:labelFor="@id/longitude_text_box"/>
+
         <EditText
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/longitude_text_box"
-            android:numeric="decimal"
             android:inputType="numberSigned|numberDecimal" />
+
     </LinearLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/new_location_save_button"
-            android:id="@+id/save_button" />
-    </LinearLayout>
-</RelativeLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/new_location_save_button"
+        android:id="@+id/save_button" />
+
+</LinearLayout>

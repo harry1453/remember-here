@@ -9,9 +9,9 @@ import android.widget.Toast;
 import com.harrysoft.RememberHere.SQL.DBAdapter;
 
 public abstract class discardButtonOnClickListener implements View.OnClickListener {
-    private DBAdapter db;
-    private Context context;
-    private int DBid;
+    private final DBAdapter db;
+    private final Context context;
+    private final int DBid;
 
     public discardButtonOnClickListener(Context context, int id){
         this.context = context;

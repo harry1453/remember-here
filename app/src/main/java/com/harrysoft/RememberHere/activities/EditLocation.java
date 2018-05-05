@@ -22,17 +22,12 @@ import com.harrysoft.RememberHere.tools.Constants;
 
 public class EditLocation extends AppCompatActivity {
 
-    private ActionBar actionBar;
-
-    private Button useGpsButton;
-    private Button saveButton;
-    private Button deleteButton;
     private EditText nameBox;
     private EditText latitudeBox;
     private EditText longitudeBox;
     private EditText descriptionBox;
 
-    DBAdapter db = new DBAdapter(this);
+    private final DBAdapter db = new DBAdapter(this);
 
     private int id;
 
@@ -48,16 +43,16 @@ public class EditLocation extends AppCompatActivity {
         }
         id = intentIDExtra;
 
-        actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        useGpsButton = (Button) findViewById(R.id.edit_screen_use_gps_button);
-        saveButton = (Button) findViewById(R.id.edit_screen_save_button);
-        deleteButton = (Button) findViewById(R.id.delete_button);
-        nameBox = (EditText) findViewById(R.id.edit_screen_name_text_box);
-        latitudeBox = (EditText) findViewById(R.id.edit_screen_latitude_text_box);
-        longitudeBox = (EditText) findViewById(R.id.edit_screen_longitude_text_box);
-        descriptionBox = (EditText) findViewById(R.id.edit_screen_description_text_box);
+        Button useGpsButton = findViewById(R.id.edit_screen_use_gps_button);
+        Button saveButton = findViewById(R.id.edit_screen_save_button);
+        Button deleteButton = findViewById(R.id.delete_button);
+        nameBox = findViewById(R.id.edit_screen_name_text_box);
+        latitudeBox = findViewById(R.id.edit_screen_latitude_text_box);
+        longitudeBox = findViewById(R.id.edit_screen_longitude_text_box);
+        descriptionBox = findViewById(R.id.edit_screen_description_text_box);
 
         useGpsButton.setOnClickListener(new getGpsOnClickListener(this) {
             @Override
@@ -75,12 +70,6 @@ public class EditLocation extends AppCompatActivity {
         });
 
         deleteButton.setOnClickListener(new discardButtonOnClickListener(this, id) {
-
-            @Override
-            public void onClick(View v){
-                super.onClick(v);
-            }
-
             @Override
             protected void closeActivity() {
                 finish();

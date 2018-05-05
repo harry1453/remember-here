@@ -3,6 +3,7 @@ package com.harrysoft.RememberHere.fragments;
 import android.content.Context;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,10 +23,10 @@ public class LocationsFragment extends Fragment {
 
     private DBAdapter dbAdapter;
     private Cursor cursor;
-    LocationCursorAdapter locationCursorAdapter;
+    private LocationCursorAdapter locationCursorAdapter;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_locations, container, false);
 
         Context context = view.getContext();
@@ -69,7 +70,7 @@ public class LocationsFragment extends Fragment {
         reloadCursor();
     }
 
-    public void reloadCursor(){
+    private void reloadCursor(){
         try {
             dbAdapter.open();
             cursor = dbAdapter.getAllLocations();

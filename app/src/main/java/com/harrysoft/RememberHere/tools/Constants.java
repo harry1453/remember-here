@@ -17,10 +17,6 @@ public class Constants {
     public static final String[] drawerItems = {drawerOption1, drawerOption2, drawerOption3, drawerOption4,};
     public static final String textBoxEmptyError = "This box must not be empty";
 
-    public class ViewLocationDetailsConstants {
-        public static final String nameLabelPrefix = "Name: ";
-        public static final String descriptionLabelPrefix = "Description: ";
-        public static final String latitudeLabelPrefix = "Latitude: ";
-        public static final String longitudeLabelPrefix = "Longitude: ";
+    private class ViewLocationDetailsConstants {
     }
 }

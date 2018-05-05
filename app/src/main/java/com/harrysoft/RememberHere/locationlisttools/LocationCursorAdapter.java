@@ -10,13 +10,13 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.harrysoft.RememberHere.R;
-import com.harrysoft.RememberHere.SQL.DBAdapter;
 import com.harrysoft.RememberHere.SQL.LocationsDatabaseContract;
 
 public class LocationCursorAdapter extends CursorAdapter {
 
-    TextView emptyText;
+    private final TextView emptyText;
 
+    @SuppressWarnings("SameParameterValue")
     public LocationCursorAdapter(Context context, Cursor cursor, int flags, TextView textLabel) {
         super(context, cursor, flags);
         emptyText = textLabel;
@@ -36,16 +36,9 @@ public class LocationCursorAdapter extends CursorAdapter {
         return super.swapCursor(cursor);
     }
 
-    public void reloadContent(Context context){
-        DBAdapter db = new DBAdapter(context);
-        db.open();
-        swapCursor(db.getAllLocations());
-        db.close();
-    }
-
     @Override
     public void bindView(View view, final Context context, Cursor cursor) {
-        TextView locationNameView = (TextView) view.findViewById(R.id.location_name);
+        TextView locationNameView = view.findViewById(R.id.location_name);
 
         final int locationId = cursor.getInt(cursor.getColumnIndexOrThrow(LocationsDatabaseContract.LocationsTable.COLUMN_NAME_ID));
         final String locationName = cursor.getString(cursor.getColumnIndexOrThrow(LocationsDatabaseContract.LocationsTable.COLUMN_NAME_NAME));
@@ -53,7 +46,7 @@ public class LocationCursorAdapter extends CursorAdapter {
 
         locationNameView.setText(locationName);
 
-        RelativeLayout menuListing = (RelativeLayout) view.findViewById(R.id.location_list_item);
+        RelativeLayout menuListing = view.findViewById(R.id.location_list_item);
         menuListing.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -64,7 +57,7 @@ public class LocationCursorAdapter extends CursorAdapter {
 
     }
 
-    public void applyEmptyTextIfNeeded(Cursor cursor){
+    private void applyEmptyTextIfNeeded(Cursor cursor){
         if ((cursor != null) && (cursor.getCount() > 0))
         {
             // Cursor contains data

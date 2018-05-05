@@ -11,10 +11,10 @@ import com.harrysoft.RememberHere.R;
 import com.harrysoft.RememberHere.SQL.DBAdapter;
 import com.harrysoft.RememberHere.SQL.LocationsDatabaseContract;
 
-public abstract class navigateButtonOnClickListener implements View.OnClickListener {
-    DBAdapter db;
-    private Context context;
-    private int id;
+abstract class navigateButtonOnClickListener implements View.OnClickListener {
+    private final DBAdapter db;
+    private final Context context;
+    private final int id;
 
     public navigateButtonOnClickListener(Context context, int id){
         this.context = context;
