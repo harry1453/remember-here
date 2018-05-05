@@ -21,6 +21,7 @@ import org.json.JSONObject;
 /**
  * Represents an in-app product's listing details.
  */
+@SuppressWarnings("unused")
 public class SkuDetails {
     private String mSku;
     private final String mJson;

@@ -6,8 +6,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.Menu;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -62,12 +60,7 @@ public class EditLocation extends AppCompatActivity {
             }
         });
 
-        saveButton.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                saveLocation();
-            }
-        });
+        saveButton.setOnClickListener(view -> saveLocation());
 
         deleteButton.setOnClickListener(new discardButtonOnClickListener(this, id) {
             @Override

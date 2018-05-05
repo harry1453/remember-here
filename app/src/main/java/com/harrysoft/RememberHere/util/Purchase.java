@@ -21,6 +21,7 @@ import org.json.JSONObject;
 /**
  * Represents an in-app billing purchase.
  */
+@SuppressWarnings("unused")
 public class Purchase {
     final String mItemType;  // ITEM_TYPE_INAPP or ITEM_TYPE_SUBS
     private String mSku;
@@ -38,7 +39,6 @@ public class Purchase {
         int mPurchaseState = o.optInt("purchaseState");
         String mDeveloperPayload = o.optString("developerPayload");
         mToken = o.optString("token", o.optString("purchaseToken"));
-        String mSignature = signature;
     }
 
     public String getItemType() { return mItemType; }

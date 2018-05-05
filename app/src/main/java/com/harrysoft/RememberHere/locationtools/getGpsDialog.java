@@ -7,7 +7,6 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
@@ -31,12 +30,7 @@ abstract class getGpsDialog extends Dialog {
         lm = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
 
         Button cancelButton = findViewById(R.id.cancel_gps_button);
-        cancelButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
+        cancelButton.setOnClickListener(v -> dismiss());
     }
 
     @Override

@@ -47,12 +47,9 @@ public class LocationCursorAdapter extends CursorAdapter {
         locationNameView.setText(locationName);
 
         RelativeLayout menuListing = view.findViewById(R.id.location_list_item);
-        menuListing.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LocationDialog dialog = new LocationDialog(context, locationName, locationDescription, locationId);
-                dialog.show();
-            }
+        menuListing.setOnClickListener(v -> {
+            LocationDialog dialog = new LocationDialog(context, locationName, locationDescription, locationId);
+            dialog.show();
         });
 
     }

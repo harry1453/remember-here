@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-public class LocationsDatabaseHelper extends SQLiteOpenHelper {
+class LocationsDatabaseHelper extends SQLiteOpenHelper {
     // If you change the database schema, you must increment the database version.
     private static final String TEXT_TYPE = " TEXT";
     private static final String FLOAT_TYPE = " REAL";

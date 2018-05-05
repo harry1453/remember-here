@@ -246,6 +246,7 @@ public abstract class AppCompatPreferenceActivity extends PreferenceActivity imp
      * @param builder A TaskStackBuilder that has been populated with Intents by
      *                onCreateNavigateUpTaskStack.
      */
+    @SuppressWarnings("unused")
     private void onPrepareSupportNavigateUpTaskStack(TaskStackBuilder builder) {
     }
 

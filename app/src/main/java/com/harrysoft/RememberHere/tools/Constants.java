@@ -16,7 +16,4 @@ public class Constants {
     public static final String drawerOption4 = "Quit";
     public static final String[] drawerItems = {drawerOption1, drawerOption2, drawerOption3, drawerOption4,};
     public static final String textBoxEmptyError = "This box must not be empty";
-
-    private class ViewLocationDetailsConstants {
-    }
 }

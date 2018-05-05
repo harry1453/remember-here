@@ -1,7 +1,6 @@
 package com.harrysoft.RememberHere.locationlisttools;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
 import android.widget.Toast;
@@ -21,22 +20,17 @@ public abstract class discardButtonOnClickListener implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-        final boolean[] responseReceived = {false};
         AlertDialog.Builder confirmDialog = new AlertDialog.Builder(context);
         confirmDialog.setMessage("Are you sure you want to delete?")
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        db.open();
-                        db.removeLocation(DBid);
-                        db.close();
-                        Toast.makeText(context, "Location deleted", Toast.LENGTH_SHORT).show();
-                        closeActivity();
-                    }
+                .setPositiveButton("Yes", (dialog, id) -> {
+                    db.open();
+                    db.removeLocation(DBid);
+                    db.close();
+                    Toast.makeText(context, "Location deleted", Toast.LENGTH_SHORT).show();
+                    closeActivity();
                 })
-                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // User cancelled the dialog
-                    }
+                .setNegativeButton("Cancel", (dialog, id) -> {
+                    // User cancelled the dialog
                 });
         confirmDialog.show();
     }

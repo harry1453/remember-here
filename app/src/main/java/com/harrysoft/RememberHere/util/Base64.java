@@ -38,7 +38,7 @@ package com.harrysoft.RememberHere.util;
  * <p>Note {@link CharBase64} is a GWT-compatible implementation of this
  * class.
  */
-@SuppressWarnings("UnusedReturnValue")
+@SuppressWarnings({"UnusedReturnValue", "unused"})
 class Base64 {
 
     /** The equals sign (=) as a byte. */

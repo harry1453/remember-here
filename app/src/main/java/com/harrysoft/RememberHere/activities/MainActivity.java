@@ -1,7 +1,6 @@
 package com.harrysoft.RememberHere.activities;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -12,8 +11,6 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -39,12 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         setUpDrawer();
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                addNewLocation();
-            }
-        });
+        fab.setOnClickListener(view -> addNewLocation());
 
         if (findViewById(R.id.fragment_container) != null) {
             if (savedInstanceState != null) {
@@ -63,10 +55,7 @@ public class MainActivity extends AppCompatActivity {
             AlertDialog.Builder instructionsDialog = new AlertDialog.Builder(this);
             instructionsDialog.setMessage(getString(R.string.instructions_message));
             instructionsDialog.setTitle(getString(R.string.instructions_title));
-            instructionsDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {}
-            });
+            instructionsDialog.setPositiveButton("OK", (dialog, which) -> {});
             instructionsDialog.setCancelable(true);
             instructionsDialog.create().show();
             SharedPreferences sharedPref = getSharedPreferences(Constants.appSettingsFileName, Context.MODE_PRIVATE);
@@ -112,29 +101,26 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
 
-        mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
+        mDrawerList.setOnItemClickListener((parent, view, position, id) -> {
 
-                Object o = mDrawerList.getItemAtPosition(position);
-                switch (o.toString()) {
-                    case Constants.drawerOption1:
-                        viewLocations();
-                        break;
-                    case Constants.drawerOption2:
-                        openAboutScreen();
-                        break;
-                    case Constants.drawerOption3:
-                        openSettings();
-                        break;
-                    case Constants.drawerOption4:
-                        System.exit(0);
-                        break;
-                    default:
-                        Toast.makeText(getApplicationContext(), "Error: Cannot find selected drawer item", Toast.LENGTH_LONG).show();
-                }
-                mDrawerLayout.closeDrawers();
+            Object o = mDrawerList.getItemAtPosition(position);
+            switch (o.toString()) {
+                case Constants.drawerOption1:
+                    viewLocations();
+                    break;
+                case Constants.drawerOption2:
+                    openAboutScreen();
+                    break;
+                case Constants.drawerOption3:
+                    openSettings();
+                    break;
+                case Constants.drawerOption4:
+                    System.exit(0);
+                    break;
+                default:
+                    Toast.makeText(getApplicationContext(), "Error: Cannot find selected drawer item", Toast.LENGTH_LONG).show();
             }
+            mDrawerLayout.closeDrawers();
         });
 
         ActionBarDrawerToggle mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
