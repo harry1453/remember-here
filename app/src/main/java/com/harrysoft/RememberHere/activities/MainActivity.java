@@ -16,9 +16,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.answers.Answers;
+import com.crashlytics.android.core.CrashlyticsCore;
+import com.harrysoft.RememberHere.BuildConfig;
 import com.harrysoft.RememberHere.R;
 import com.harrysoft.RememberHere.fragments.LocationsFragment;
 import com.harrysoft.RememberHere.tools.Constants;
+import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Crashlytics crashlyticsKit = new Crashlytics.Builder()
+                .core(new CrashlyticsCore.Builder().disabled(BuildConfig.DEBUG).build())
+                .build();
+        Fabric.with(this, crashlyticsKit, new Answers());
 
         actionBar = getSupportActionBar();
         FloatingActionButton fab = findViewById(R.id.fab);

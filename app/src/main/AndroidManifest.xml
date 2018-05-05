@@ -67,6 +67,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.harrysoft.RememberHere.activities.MainActivity" />
         </activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="2a5a181fe9f7d8a481174f9a2fb6b2dfb5a6b58e" />
     </application>
 
 </manifest>
